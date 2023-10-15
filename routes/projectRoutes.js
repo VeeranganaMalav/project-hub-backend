@@ -7,8 +7,8 @@ const { isResourceAccessible } = require('../middleware/resourceAccessibleMiddle
 const router = express.Router();
 
 router.post('/create', isAuthenticated, isAdmin, createProject);
-router.get('/', isAuthenticated, getProjects);
-router.get('/:id', isAuthenticated, isResourceAccessible, getSingleProject);
+router.get('/', getProjects);
+router.get('/:id', getSingleProject);
 router.patch('/:id/update', isAuthenticated, isAdmin, updateProject);
 router.delete('/:id/delete', isAuthenticated, isAdmin, deleteProject);
 router.get('/:id/populate', populateProjectManager);

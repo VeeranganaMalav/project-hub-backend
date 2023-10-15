@@ -60,7 +60,8 @@ module.exports.loginUser = async (req, res) => {
         const passwordMatch = await bcrypt.compare(password, user.password);
 
         if (!passwordMatch) {
-            return res.status(401).json({ error: 'Invalid email or password' });
+            res.status(401).json({ error: 'Invalid email or password' });
+            return;
         }
 
         // Generate a JSON Web Token (JWT) for authentication
